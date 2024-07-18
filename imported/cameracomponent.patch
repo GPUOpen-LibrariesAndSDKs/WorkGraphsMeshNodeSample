@@ -1,0 +1,13 @@
+diff --git a/framework/cauldron/framework/inc/core/components/cameracomponent.h b/framework/cauldron/framework/inc/core/components/cameracomponent.h
+index 114b5db..33a274d 100644
+--- a/framework/cauldron/framework/inc/core/components/cameracomponent.h
++++ b/framework/cauldron/framework/inc/core/components/cameracomponent.h
+@@ -245,7 +245,7 @@ namespace cauldron
+          */
+         static void SetJitterCallbackFunc(CameraJitterCallback callbackFunc) { s_pSetJitterCallback = callbackFunc; }
+ 
+-    private:
++    protected:
+         CameraComponent() = delete;
+ 
+         void ResetCamera();

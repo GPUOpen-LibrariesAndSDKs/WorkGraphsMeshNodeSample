@@ -1,0 +1,35 @@
+{
+  "Mesh Node Sample": {
+    "RenderResources": {
+      "GBufferColorTarget": {
+        "Format": "RGB10A2_UNORM",
+        "RenderResolution": true
+      },
+      "GBufferNormalTarget": {
+        "Format": "RGBA16_FLOAT",
+        "RenderResolution": true
+      },
+      "GBufferMotionVectorTarget": {
+        "Format": "RG16_FLOAT",
+        "RenderResolution": true
+      },
+      "GBufferDepthTarget": "DepthTarget"
+    },
+
+    "RenderModules": [
+      "WorkGraphRenderModule",
+      "FSR2RenderModule",
+      "ToneMappingRenderModule"
+    ],
+
+    "Allocations": {
+      "GPUResourceViewCount": 200000,
+      "CPUResourceViewCount": 200000
+    },
+
+    "InvertedDepth": false,
+    "Content": {
+      "SceneExposure": 0.5
+    }
+  }
+}

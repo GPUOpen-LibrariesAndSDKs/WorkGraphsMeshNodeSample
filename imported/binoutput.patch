@@ -1,0 +1,13 @@
+diff --git a/common.cmake b/common.cmake
+index 88aeb5d..4a2283b 100644
+--- a/common.cmake
++++ b/common.cmake
+@@ -40,7 +40,7 @@ endif()
+ set(SAMPLE_ROOT ${CMAKE_HOME_DIRECTORY}/samples)
+ set(SDK_ROOT ${CMAKE_HOME_DIRECTORY}/sdk)
+ set(FRAMEWORK_ROOT ${CMAKE_HOME_DIRECTORY}/framework)
+-set(BIN_OUTPUT ${CMAKE_HOME_DIRECTORY}/bin)
++set(BIN_OUTPUT ${CMAKE_SOURCE_DIR}/bin)
+ set(CAULDRON_ROOT ${FRAMEWORK_ROOT}/cauldron)
+ set(RENDERMODULE_ROOT ${FRAMEWORK_ROOT}/rendermodules)
+ set(FFX_API_CAULDRON_ROOT ${SAMPLE_ROOT}/ffx_cauldron)

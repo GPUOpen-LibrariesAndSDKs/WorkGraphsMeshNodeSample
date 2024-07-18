@@ -1,0 +1,4 @@
+# CMake build folder
+build
+# Binary output folder
+bin

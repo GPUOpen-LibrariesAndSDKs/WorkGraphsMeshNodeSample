@@ -1,0 +1,52 @@
+diff --git a/framework/cauldron/framework/libs/agilitysdk/CAULDRONREADME.md b/framework/cauldron/framework/libs/agilitysdk/CAULDRONREADME.md
+index e445450..470c187 100644
+--- a/framework/cauldron/framework/libs/agilitysdk/CAULDRONREADME.md
++++ b/framework/cauldron/framework/libs/agilitysdk/CAULDRONREADME.md
+@@ -1,7 +1,7 @@
+ # DX12 Agility SDK
+ 
+ ## Current Version
+-1.608.2
++1.715.0-preview
+ 
+ ## How to update
+ 1. Download the latest version (as a .nupkg) from https://devblogs.microsoft.com/directx/directx12agility/
+diff --git a/framework/cauldron/framework/src/render/dx12/device_dx12.cpp b/framework/cauldron/framework/src/render/dx12/device_dx12.cpp
+index 6782b97..580ff02 100644
+--- a/framework/cauldron/framework/src/render/dx12/device_dx12.cpp
++++ b/framework/cauldron/framework/src/render/dx12/device_dx12.cpp
+@@ -36,7 +36,7 @@
+ using namespace Microsoft::WRL;
+ 
+ // D3D12SDKVersion needs to line up with the version number on Microsoft's DirectX12 Agility SDK Download page
+-extern "C" { __declspec(dllexport) extern const UINT D3D12SDKVersion = 608; }
++extern "C" { __declspec(dllexport) extern const UINT D3D12SDKVersion = 715; }
+ extern "C" { __declspec(dllexport) extern const char* D3D12SDKPath = u8".\\D3D12\\"; }
+ 
+ namespace cauldron
+diff --git a/sdk/tools/ffx_shader_compiler/libs/agilitysdk/FFX_SDK_README.md b/sdk/tools/ffx_shader_compiler/libs/agilitysdk/FFX_SDK_README.md
+index d3ae9cd..db89102 100644
+--- a/sdk/tools/ffx_shader_compiler/libs/agilitysdk/FFX_SDK_README.md
++++ b/sdk/tools/ffx_shader_compiler/libs/agilitysdk/FFX_SDK_README.md
+@@ -1,7 +1,7 @@
+ # DX12 Agility SDK
+ 
+ ## Current Version
+-1.608.2
++1.715.0-preview
+ 
+ ## How to update
+ 1. Download the latest version (as a .nupkg) from https://devblogs.microsoft.com/directx/directx12agility/
+diff --git a/sdk/tools/ffx_shader_compiler/src/hlsl_compiler.cpp b/sdk/tools/ffx_shader_compiler/src/hlsl_compiler.cpp
+index 5375d3d..39884e1 100644
+--- a/sdk/tools/ffx_shader_compiler/src/hlsl_compiler.cpp
++++ b/sdk/tools/ffx_shader_compiler/src/hlsl_compiler.cpp
+@@ -24,7 +24,7 @@
+ #include "utils.h"
+ 
+ // D3D12SDKVersion needs to line up with the version number on Microsoft's DirectX12 Agility SDK Download page
+-extern "C" { __declspec(dllexport) extern const UINT D3D12SDKVersion = 608; }
++extern "C" { __declspec(dllexport) extern const UINT D3D12SDKVersion = 715; }
+ extern "C" { __declspec(dllexport) extern const char* D3D12SDKPath = u8".\\D3D12\\"; }
+ 
+ struct DxcCustomIncludeHandler : public IDxcIncludeHandler

@@ -1,0 +1,37 @@
+diff --git a/framework/cauldron/framework/libs/dxc/CMakeLists.txt b/framework/cauldron/framework/libs/dxc/CMakeLists.txt
+index 6695b76..fad43bb 100644
+--- a/framework/cauldron/framework/libs/dxc/CMakeLists.txt
++++ b/framework/cauldron/framework/libs/dxc/CMakeLists.txt
+@@ -2,8 +2,7 @@ add_library(dxc INTERFACE)
+ target_include_directories(dxc INTERFACE BEFORE "inc/")
+ 
+ set(dxc_binaries
+-    ${CMAKE_CURRENT_SOURCE_DIR}/bin/x64/dxcompiler.dll
+-    ${CMAKE_CURRENT_SOURCE_DIR}/bin/x64/dxil.dll)
++    ${CMAKE_CURRENT_SOURCE_DIR}/bin/x64/dxcompiler.dll)
+ 
+ copyTargetCommand("${dxc_binaries}" ${BIN_OUTPUT} copied_dxc_bin)
+ add_dependencies(dxc copied_dxc_bin)
+\ No newline at end of file
+diff --git a/framework/cauldron/framework/src/render/win/shaderbuilder_win.cpp b/framework/cauldron/framework/src/render/win/shaderbuilder_win.cpp
+index 4847f86..47e2b50 100644
+--- a/framework/cauldron/framework/src/render/win/shaderbuilder_win.cpp
++++ b/framework/cauldron/framework/src/render/win/shaderbuilder_win.cpp
+@@ -312,14 +312,10 @@ namespace cauldron
+         ComPtr<IDxcResult> pCompiledResult;
+         pCompiler->Compile(&shaderCodeBuffer, arguments.data(), static_cast<UINT32>(arguments.size()), &includeFileHandler, IID_PPV_ARGS(&pCompiledResult));
+ 
+-        // Handle any errors if they occurred
+-        ComPtr<IDxcBlobUtf8> pErrors;    // wide version currently doesn't appear to be supported
+-        pCompiledResult->GetOutput(DXC_OUT_ERRORS, IID_PPV_ARGS(&pErrors), nullptr);
+-        if (pErrors && pErrors->GetStringLength() > 0)
++        HRESULT compileStatus;
++        if (FAILED(pCompiledResult->GetStatus(&compileStatus)) || FAILED(compileStatus))
+         {
+-            std::string errorString = pErrors->GetStringPointer();
+-            std::wstring errorWString = StringToWString(errorString.c_str());
+-            CauldronCritical(L"%ls : %ls", (shaderFile)? filePath.c_str() : L"ShaderCodeString", errorWString.c_str());
++            CauldronCritical(L"%ls", (shaderFile)? filePath.c_str() : L"ShaderCodeString");
+             return nullptr;
+         }
+ 
